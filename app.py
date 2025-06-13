@@ -26,8 +26,10 @@ cursor = conn.cursor()
 host = db_info["host"]
 port = db_info["port"]
 dbname = db_info["database"]
-user = db_info["user"]
-password = db_info["password"]
+# user = db_info["user"]
+# password = db_info["password"]
+user = quote_plus(db_info["user"])
+password = quote_plus(db_info["password"])
 
 engine = create_engine(f'postgresql+psycopg://{user}:{password}@{host}:{port}/{dbname}?sslmode=require')
 
