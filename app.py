@@ -61,7 +61,7 @@ with tab1:
 
     if selected_table:
         try:
-            query = f"SELECT * FROM cms.{selected_table}"
+            query = f"SELECT * FROM {selected_table}"
             df = pd.read_sql(query, engine)
             st.dataframe(df)
         except Exception as e:
