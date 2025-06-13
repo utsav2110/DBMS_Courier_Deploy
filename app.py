@@ -31,7 +31,7 @@ user = db_info["user"]
 password = db_info["password"]
 
 # psycopg2 remains the correct dialect string even with psycopg v3
-engine = create_engine(f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}?sslmode=require')
+engine = create_engine(f'postgresql+psycopg://{user}:{password}@{host}:{port}/{dbname}?sslmode=require')
 
 st.set_page_config(page_title="Courier Management System", layout="wide")
 st.success("✅ Connected to Supabase PostgreSQL Database!")
