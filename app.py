@@ -363,7 +363,7 @@ with tab3:
             try:
                 cur = conn.cursor()
                 insert_query = """
-                    INSERT INTO cms.branch (branch_id, city, pincode)
+                    INSERT INTO branch (branch_id, city, pincode)
                     VALUES (%s, %s, %s)
                 """
                 cur.execute(insert_query, (branch_id, city, pincode))
@@ -384,7 +384,7 @@ with tab3:
             try:
                 cur = conn.cursor()
                 insert_query = """
-                    INSERT INTO cms.vehicle (vehicle_id, distance, capacity)
+                    INSERT INTO vehicle (vehicle_id, distance, capacity)
                     VALUES (%s, %s, %s)
                 """
                 cur.execute(insert_query, (vehicle_id, distance, capacity))
@@ -419,7 +419,7 @@ with tab3:
 
                 # Insert into employee
                 insert_emp = """
-                    INSERT INTO cms.employee (employee_id, name, contact_number, date_of_joining, role, branch_id)
+                    INSERT INTO employee (employee_id, name, contact_number, date_of_joining, role, branch_id)
                     VALUES (%s, %s, %s, %s, %s, %s)
                 """
                 cur.execute(insert_emp, (emp_id, name, phone, hire_date, post, branch_id))
@@ -427,21 +427,21 @@ with tab3:
                 # Insert into corresponding sub-table
                 if post == "Driver":
                     insert_driver = """
-                        INSERT INTO cms.driver (id, rating, vehicle_id)
+                        INSERT INTO driver (id, rating, vehicle_id)
                         VALUES (%s, %s, %s)
                     """
                     cur.execute(insert_driver, (emp_id, rating, vehicle_id))
 
                 elif post == "Clerk":
                     insert_clerk = """
-                        INSERT INTO cms.Clerk (id, accuracy)
+                        INSERT INTO Clerk (id, accuracy)
                         VALUES (%s, %s)
                     """
                     cur.execute(insert_clerk, (emp_id, performance))
 
                 elif post == "IT_Support":
                     insert_it = """
-                        INSERT INTO cms.it_support (id, complaints_per_hour)
+                        INSERT INTO it_support (id, complaints_per_hour)
                         VALUES (%s, %s)
                     """
                     cur.execute(insert_it, (emp_id, issue_resolved))
@@ -464,7 +464,7 @@ with tab3:
             try:
                 cur = conn.cursor()
                 insert_feedback = """
-                    INSERT INTO cms.feedback (date, comment, rating, customer_id)
+                    INSERT INTO feedback (date, comment, rating, customer_id)
                     VALUES (%s, %s, %s, %s)
                 """
                 cur.execute(insert_feedback, (fb_date, comment, rating, customer_id))
@@ -559,51 +559,3 @@ with tab4:
                    title='Average Delivery Time by Courier Type',
                    labels={'type': 'Courier Type', 'average_delivery_time': 'Days'})
     st.plotly_chart(fig19, use_container_width=True)
-
-
-
-
-
-
-
-
-
-
-
-# import streamlit as st
-# import pandas as pd
-# import psycopg  # psycopg v3
-# from sqlalchemy import create_engine
-
-# # ------------------ PostgreSQL Connection ------------------
-
-# db_info = st.secrets["postgres"]  # ensure .streamlit/secrets.toml has correct Supabase details
-
-# # psycopg v3 connection
-# def connect_db():
-#     conn = psycopg.connect(
-#         host=db_info["host"],
-#         port=db_info["port"],
-#         dbname=db_info["database"],
-#         user=db_info["user"],
-#         password=db_info["password"],
-#         sslmode="require"  # Supabase requires SSL
-#     )
-#     return conn
-
-# conn = connect_db()
-# cursor = conn.cursor()
-
-# # SQLAlchemy engine using psycopg v3 driver
-# # NOTE: SQLAlchemy does not officially support psycopg v3 directly via dialect name yet, so use psycopg2 for engine
-# host = db_info["host"]
-# port = db_info["port"]
-# dbname = db_info["database"]
-# user = db_info["user"]
-# password = db_info["password"]
-
-# # psycopg2 remains the correct dialect string even with psycopg v3
-# engine = create_engine(f'postgresql+psycopg://{user}:{password}@{host}:{port}/{dbname}?sslmode=require')
-
-# st.set_page_config(page_title="Courier Management System", layout="wide")
-# st.success("✅ Connected to Supabase PostgreSQL Database!")
