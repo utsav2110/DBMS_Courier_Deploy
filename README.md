@@ -97,3 +97,12 @@ The system manages the following key entities:
 - Database credentials are configurable
 - PostgreSQL connection with secure authentication
 - Role-based access control
+
+## 🚀 Project Live Link
+<h3> Check out website Live Link </h3>
+
+<h3><a href="https://courier-shipping-management-system.streamlit.app/" target="_blank" style="font-size: 24px;">Click Here</a></h3>
+
+<h3> Or </h3>
+
+`https://courier-shipping-management-system.streamlit.app/`
