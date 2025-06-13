@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import psycopg  # psycopg v3
 from sqlalchemy import create_engine
+from urllib.parse import quote_plus
 import plotly.express as px 
 
 # ------------------ PostgreSQL Connection ------------------
