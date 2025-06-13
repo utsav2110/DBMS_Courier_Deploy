@@ -82,7 +82,7 @@ with tab2:
         "1. Couriers for a Customer in Date Range": """
             SELECT * FROM Courier
             WHERE Customer_ID = '23110100002'
-            AND Date BETWEEN '08-11-2023' AND '08-12-2023';
+            AND Date BETWEEN '11-08-2023' AND '12-08-2023';
         """,
         "2. City Traveled by a Vehicle": """
             SELECT City FROM VehicleCityMapping
